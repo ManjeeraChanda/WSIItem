@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Satish Rao (Williams-Sonoma, Inc.) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://mdm.wsgc.com/2014/CanonicalData"
+           xmlns:common="http://ecommerce.wsgc.com/2013/Common"
+           targetNamespace="http://mdm.wsgc.com/2014/CanonicalData"
+           version="1.0"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://ecommerce.wsgc.com/2013/Common"
+             schemaLocation="../../2013/Common/common-all.xsd"/>
+
+  <xs:include schemaLocation="base-types.xsd"/>
+
+  <xs:complexType name="AssociateServicesType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Contains services for associates along with Effective dates</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="IsFreeGiftWrap" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Indicates if Gift Wrapping is free for associates, should be omitted if false.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="IsFreePz" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Indicates if item Personalization/Monogramming is free for associates, should be omitted if false.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="startTime" type="xs:date" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="DiscountPercentType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Contains Discount percent with modifer as "regular" or "sale"</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ChargePercentType">
+        <xs:attribute name="modifier" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>modifer is omitted for regular, or could have value of "sale"</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="EffectiveAssociateDiscountType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Defines the effect of a particular associate discount category code at a point in time.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="DiscountPercent" type="DiscountPercentType" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            Provides the discount percentage for each type of price
+            modifier, at minimum a value with no modifier MUST be
+            included for the regular item discount, additional
+            modifiers may then be specified. In the absence of a
+            matching discount percent there is assumed to be NO
+            DISCOUNT for that modifier. Refer to the price modifier
+            enumeration's documentation for details.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="IsFreeShip" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Present and true if items with this category have free shipping, should be omitted if false.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="startTime" type="xs:dateTime" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="AssociateCategoryType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Contains a Discount code with associated effective dates</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Provides a description of the discount category for internal (non-customer) use.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Effective" type="EffectiveAssociateDiscountType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="typeCode" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="AssociateDiscountsType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Contains Associate Discounts  and  Eligibility flags with asssociated effective date</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Category" type="AssociateCategoryType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Services" type="AssociateServicesType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ConceptEntityAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="AssociateDiscountsEventType">
+    <xs:sequence>
+      <xs:element name="SystemContext" type="common:SystemContextType"/>
+      <xs:element name="AssociateDiscounts" type="AssociateDiscountsType"/>
+    </xs:sequence>
+    <xs:attribute name="version" type="common:VersionType" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="AssociateDiscountsEvent" type="AssociateDiscountsEventType"/>
+</xs:schema>

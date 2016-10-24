@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_YpMUsI8KEeanb8rlbb3LEw" targetNamespace="http://tns.tibco.com/bw/composite/TIBItemToNCR" name="TIBItemToNCR" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_ZdQO4I8KEeanb8rlbb3LEw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Zds60I8KEeanb8rlbb3LEw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Zd2r0I8KEeanb8rlbb3LEw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Zd_1wI8KEeanb8rlbb3LEw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZeJmwI8KEeanb8rlbb3LEw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZeJmwY8KEeanb8rlbb3LEw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZeTXwI8KEeanb8rlbb3LEw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZeTXwY8KEeanb8rlbb3LEw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ZechsI8KEeanb8rlbb3LEw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Nqlk4JfYEeao5sjRMAB4_Q" name="ENV" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_P7f3kJfYEeao5sjRMAB4_Q" name="AppCode" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_1EgYQJfdEeao5sjRMAB4_Q" name="Property" type="XMLSchema:string" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_1K244JfSEeao5sjRMAB4_Q" name="/TIBItemToNCR/InterfaceCode" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_fxU6EJfTEeao5sjRMAB4_Q" name="/TIBItemToNCR/JMS/ItemMasterQ" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_jf9H8JfTEeao5sjRMAB4_Q" name="/TIBItemToNCR/JMS/MaxSessions" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_jlnEAJfTEeao5sjRMAB4_Q" name="/TIBItemToNCR/JMS/ItemPriceQ" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_jrRAEJfTEeao5sjRMAB4_Q" name="/TIBItemToNCR/JMS/ItemSourcingQ" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_3cJwoJfTEeao5sjRMAB4_Q" name="/TIBItemToNCR/NCRConn/productResource" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_9GuGwJfTEeao5sjRMAB4_Q" name="/TIBItemToNCR/NCRConn/httpConn" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_9JsiQJfTEeao5sjRMAB4_Q" name="/TIBItemToNCR/NCRConn/priceResource" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_9NHCoJfTEeao5sjRMAB4_Q" name="/TIBItemToNCR/NCRConn/vendorResource" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_9UHCgJfTEeao5sjRMAB4_Q" name="/TIBItemToNCR/NCRConn/loginResource" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_DmiYMI_kEea1I8pqgNGXjQ" name="Componenttestprc" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_DmiYMY_kEea1I8pqgNGXjQ" processName="com.wsi.item.tib.ncr.TIBtoNCRItemProcess"/>
+  </sca:component>
+  <sca:component xmi:id="_yfHlUJGFEeaHc9t1BzKlTg" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_yfHlUZGFEeaHc9t1BzKlTg" processName="com.wsi.item.tib.ncr.Activator"/>
+  </sca:component>
+  <sca:component xmi:id="_zt6HIJGaEeaHc9t1BzKlTg" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_zt6HIZGaEeaHc9t1BzKlTg" processName="com.wsi.item.tib.ncr.RefreshNCRToken"/>
+  </sca:component>
+  <sca:component xmi:id="_F60QIJSTEea3YvrJhicrsA" name="ComponentNCRlogin" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_F60QIZSTEea3YvrJhicrsA" processName="com.wsi.item.tib.ncr.unitTest.NCRlogin"/>
+  </sca:component>
+  <sca:component xmi:id="_CE3K4JSWEea3YvrJhicrsA" name="Componentproduct" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_CE3K4ZSWEea3YvrJhicrsA" processName="com.wsi.item.tib.ncr.unitTest.product"/>
+  </sca:component>
+  <sca:component xmi:id="_03s7IJSXEea3YvrJhicrsA" name="ComponentTIBtoNCRItemSourcingProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_03s7IZSXEea3YvrJhicrsA" processName="com.wsi.item.tib.ncr.TIBtoNCRItemSourcingProcess"/>
+  </sca:component>
+  <sca:component xmi:id="_6HI84JY2EeaIS-LP3W5lMg" name="ComponentTIBtoNCRItemPricingProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_6HI84ZY2EeaIS-LP3W5lMg" processName="com.wsi.item.tib.ncr.TIBtoNCRItemPricingProcess"/>
+  </sca:component>
+</sca:composite>

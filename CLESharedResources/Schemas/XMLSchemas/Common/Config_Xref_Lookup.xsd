@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/SharedResources/XMLSchemas/Common/Config_Xref_Lookup.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/SharedResources/XMLSchemas/Common/Config_Xref_Lookup.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Config">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Interface_Config" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubProcess">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SubProc_Name"/>
+				<xs:element ref="ISEnable"/>
+				<xs:element ref="Misc1" minOccurs="0"/>
+				<xs:element ref="Misc2" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubProc_Name" type="xs:string" nillable="true"/>
+	<xs:element name="ISEnable">
+		<xs:simpleType>
+			<xs:restriction base="xs:boolean"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Misc1" type="xs:string"/>
+	<xs:element name="Misc2" type="xs:string"/>
+	<xs:element name="Interface_Config">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Interface_Name"/>
+				<xs:element ref="SubProcess" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Interface_Name" type="xs:string"/>
+</xs:schema>

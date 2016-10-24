@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:pfx="http://www.tibco.com/schemas/TIBCOSharedResources/SharedResources/XMLSchemas/CLE/ThresholdExceptionNotification.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tns.tibco.com/bw/model/core/moduleSV/c8fb62c6-d1fa-4302-a5a1-ce8a09980102">
+    <xsd:import namespace="http://www.tibco.com/schemas/TIBCOSharedResources/SharedResources/XMLSchemas/CLE/ThresholdExceptionNotification.xsd" schemaLocation="../XMLSchemas/Common/ThresholdExceptionNotification.xsd"/>
+    <xsd:element name="NotificationConfiguration">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Configuration" type="pfx:RequestType" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

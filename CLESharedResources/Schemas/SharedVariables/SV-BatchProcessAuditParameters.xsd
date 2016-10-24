@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tns.tibco.com/bw/model/core/moduleSV/1035717a-66aa-4d67-a621-a3e00020be6d">
+    <xsd:element name="ProcessingInfo">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FileName" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="RecordsReceived" type="xsd:int" minOccurs="0"/>
+                <xsd:element name="RecordsProcessed" type="xsd:int" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

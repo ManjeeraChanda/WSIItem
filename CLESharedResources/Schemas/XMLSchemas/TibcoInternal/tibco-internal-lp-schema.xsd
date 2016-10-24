@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="HeaderData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="Division"/>
+				<xs:element minOccurs="0" ref="StoreNumber"/>
+				<xs:element minOccurs="0" ref="BusinessDate"/>
+				<xs:element minOccurs="0" ref="RegisterNumber"/>
+				<xs:element minOccurs="0" ref="TransactionNumber"/>
+				<xs:element minOccurs="0" ref="RecordType"/>
+				<xs:element minOccurs="0" ref="OrderNumber"/>
+				<xs:element minOccurs="0" ref="CashierId"/>
+				<xs:element minOccurs="0" ref="DeletedBy"/>
+				<xs:element minOccurs="0" ref="CustomerID"/>
+				<xs:element minOccurs="0" ref="CustomerFirstName"/>
+				<xs:element minOccurs="0" ref="CustomerLastName"/>
+				<xs:element minOccurs="0" ref="BillingAddress1"/>
+				<xs:element minOccurs="0" ref="BillingAddress2"/>
+				<xs:element minOccurs="0" ref="BillingCity"/>
+				<xs:element minOccurs="0" ref="BillingState"/>
+				<xs:element minOccurs="0" ref="BillingPostalCode"/>
+				<xs:element minOccurs="0" ref="BillingCountry"/>
+				<xs:element minOccurs="0" ref="BillingPhone"/>
+				<xs:element minOccurs="0" ref="BillingEmail"/>
+				<xs:element minOccurs="0" ref="IPAddress"/>
+				<xs:element minOccurs="0" ref="TransactionType"/>
+				<xs:element minOccurs="0" ref="TransDiscountAmt"/>
+				<xs:element minOccurs="0" ref="TransactionTime"/>
+				<xs:element minOccurs="0" ref="RegistryID"/>
+				<xs:element minOccurs="0" ref="AccountingUnit"/>
+				<xs:element minOccurs="0" ref="DesignerID"/>
+				<xs:element minOccurs="0" ref="Int-nationalOrdInd"/>
+				<xs:element minOccurs="0" ref="EmployeeID"/>
+				<xs:element minOccurs="0" ref="ReplacementOrgOrd"/>
+				<xs:element minOccurs="0" ref="ReplacementAppDate"/>
+				<xs:element minOccurs="0" ref="ReplacementRsnCode"/>
+				<xs:element minOccurs="0" ref="ReplacementActCode"/>
+				<xs:element minOccurs="0" ref="CredOrRefundTotalAmt"/>
+				<xs:element minOccurs="0" ref="RefundReasonCode"/>
+				<xs:element minOccurs="0" ref="CatalogCode"/>
+				<xs:element minOccurs="0" ref="OrderType"/>
+				<xs:element minOccurs="0" ref="Brand"/>
+				<xs:element minOccurs="0" ref="OrderCreateDate"/>
+				<xs:element minOccurs="0" ref="OrderCreateTime"/>
+				<xs:element minOccurs="0" ref="AddedDate"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Division" type="xs:string"/>
+	<xs:element name="StoreNumber" type="xs:string"/>
+	<xs:element name="BusinessDate" type="xs:string"/>
+	<xs:element name="RegisterNum" type="xs:string"/>
+	<xs:element name="TransactionNumber" type="xs:string"/>
+	<xs:element name="RecordType" type="xs:string"/>
+	<xs:element name="OrderNumber" type="xs:string"/>
+	<xs:element name="CashierId" type="xs:string"/>
+	<xs:element name="CustomerID" type="xs:string"/>
+	<xs:element name="CustomerFirstName" type="xs:string"/>
+	<xs:element name="CustomerLastName" type="xs:string"/>
+	<xs:element name="Billingaddress1" type="xs:string"/>
+	<xs:element name="Billingaddress2" type="xs:string"/>
+	<xs:element name="BillingCity" type="xs:string"/>
+	<xs:element name="BillingState" type="xs:string"/>
+	<xs:element name="BillingPostalcode" type="xs:string"/>
+	<xs:element name="BillingCountry" type="xs:string"/>
+	<xs:element name="BillingPhone" type="xs:string"/>
+	<xs:element name="BillingEmail" type="xs:string"/>
+	<xs:element name="IPaddress" type="xs:string"/>
+	<xs:element name="TransactionType" type="xs:string"/>
+	<xs:element name="transactiondiscountamount" type="xs:string"/>
+	<xs:element name="Transactiontime" type="xs:string"/>
+	<xs:element name="RegistryID" type="xs:string"/>
+	<xs:element name="AccountingUnit" type="xs:string"/>
+	<xs:element name="DesignerID" type="xs:string"/>
+	<xs:element name="InternationalOrderIndicator" type="xs:string"/>
+	<xs:element name="EmployeeID" type="xs:string"/>
+	<xs:element name="ReplacementOriginalOrder" type="xs:string"/>
+	<xs:element name="ReplacementApprovalDate" type="xs:string"/>
+	<xs:element name="ReplacementReasonCode" type="xs:string"/>
+	<xs:element name="ReplacementActionCode" type="xs:string"/>
+	<xs:element name="CreditorRefundAmount" type="xs:string"/>
+	<xs:element name="Refundreasoncode" type="xs:string"/>
+	<xs:element name="CatalogCode" type="xs:string"/>
+	<xs:element name="OrderType" type="xs:string"/>
+	<xs:element name="Brand" type="xs:string"/>
+	<xs:element name="PaymentData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="Division"/>
+				<xs:element minOccurs="0" ref="StoreNumber"/>
+				<xs:element minOccurs="0" ref="BusinessDate"/>
+				<xs:element minOccurs="0" ref="RegisterNum"/>
+				<xs:element minOccurs="0" ref="TransactionNumber"/>
+				<xs:element minOccurs="0" ref="RecordType"/>
+				<xs:element minOccurs="0" ref="TenderType"/>
+				<xs:element minOccurs="0" ref="TenderAmount"/>
+				<xs:element minOccurs="0" ref="CreditCardNumber"/>
+				<xs:element minOccurs="0" ref="ChequeNumber"/>
+				<xs:element minOccurs="0" ref="SVCAccountNumber"/>
+				<xs:element minOccurs="0" ref="SVCBalance"/>
+				<xs:element minOccurs="0" ref="RewardCertNumber"/>
+				<xs:element minOccurs="0" ref="RewardCertAmount"/>
+				<xs:element minOccurs="0" ref="RewardCertType"/>
+				<xs:element minOccurs="0" ref="KeyName"/>
+				<xs:element minOccurs="0" ref="AddedDate"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TenderType" type="xs:string"/>
+	<xs:element name="TenderAmount" type="xs:string"/>
+	<xs:element name="CreditCardNumber" type="xs:string"/>
+	<xs:element name="CheckNumber" type="xs:string"/>
+	<xs:element name="SVCAccountnumber" type="xs:string"/>
+	<xs:element name="SVCBalance" type="xs:string"/>
+	<xs:element name="RewardCertificateNumber" type="xs:string"/>
+	<xs:element name="RewardCertificateAmount" type="xs:string"/>
+	<xs:element name="RewardCertificateType" type="xs:string"/>
+	<xs:element name="KeyName" type="xs:string"/>
+	<xs:element name="ShipmentData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="Division"/>
+				<xs:element minOccurs="0" ref="StoreNumber"/>
+				<xs:element minOccurs="0" ref="BusinessDate"/>
+				<xs:element minOccurs="0" ref="RegisterNum"/>
+				<xs:element minOccurs="0" ref="TransactionNumber"/>
+				<xs:element minOccurs="0" ref="RecordType"/>
+				<xs:element minOccurs="0" ref="LineItemNumber"/>
+				<xs:element minOccurs="0" ref="RecordSubType"/>
+				<xs:element minOccurs="0" ref="SKUNumber"/>
+				<xs:element minOccurs="0" ref="SKUDescription"/>
+				<xs:element minOccurs="0" ref="DeptNumber"/>
+				<xs:element minOccurs="0" ref="ClassNumber"/>
+				<xs:element minOccurs="0" ref="Style"/>
+				<xs:element minOccurs="0" ref="Color"/>
+				<xs:element minOccurs="0" ref="Size"/>
+				<xs:element minOccurs="0" ref="SerialNumber"/>
+				<xs:element minOccurs="0" ref="SystemPrice"/>
+				<xs:element minOccurs="0" ref="DiscountAmount"/>
+				<xs:element minOccurs="0" ref="FinalPrice"/>
+				<xs:element minOccurs="0" ref="NonMerchIndicator"/>
+				<xs:element minOccurs="0" ref="ShippingCustomerId"/>
+				<xs:element minOccurs="0" ref="ShippingToName"/>
+				<xs:element minOccurs="0" ref="ShippingAddress1"/>
+				<xs:element minOccurs="0" ref="ShippingAddress2"/>
+				<xs:element minOccurs="0" ref="ShippingCity"/>
+				<xs:element minOccurs="0" ref="ShippingState"/>
+				<xs:element minOccurs="0" ref="ShippingPostalCode"/>
+				<xs:element minOccurs="0" ref="ShippingCountry"/>
+				<xs:element minOccurs="0" ref="ShippingPhone"/>
+				<xs:element minOccurs="0" ref="ShippingEmail"/>
+				<xs:element minOccurs="0" ref="ShippingVendor"/>
+				<xs:element minOccurs="0" ref="ShippingMethod"/>
+				<xs:element minOccurs="0" ref="ShippingTrackID"/>
+				<xs:element minOccurs="0" ref="SuborderNo"/>
+				<xs:element minOccurs="0" ref="GiftSalutations"/>
+				<xs:element minOccurs="0" ref="ReturnStore"/>
+				<xs:element minOccurs="0" ref="MonogrammingDisc"/>
+				<xs:element minOccurs="0" ref="GiftWrapDisc"/>
+				<xs:element minOccurs="0" ref="ShippingHandlDisc"/>
+				<xs:element minOccurs="0" ref="SurchargeDisc"/>
+				<xs:element minOccurs="0" ref="MonogrammingCharge"/>
+				<xs:element minOccurs="0" ref="GiftWrapCharge"/>
+				<xs:element minOccurs="0" ref="ShippingHandlChrg"/>
+				<xs:element minOccurs="0" ref="Surcharge"/>
+				<xs:element minOccurs="0" ref="TaxAmount"/>
+				<xs:element minOccurs="0" ref="StateTaxable"/>
+				<xs:element minOccurs="0" ref="FreightTaxable"/>
+				<xs:element minOccurs="0" ref="ItemFreeShip"/>
+				<xs:element minOccurs="0" ref="OtherRefundAmount"/>
+				<xs:element minOccurs="0" ref="ReasonCode"/>
+				<xs:element minOccurs="0" ref="SterlingPrimeLine"/>
+				<xs:element minOccurs="0" ref="CatCode"/>
+				<xs:element minOccurs="0" ref="Quantity"/>
+				<xs:element minOccurs="0" ref="CancelReasonCode"/>
+				<xs:element minOccurs="0" ref="AddedDate"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LineItemNumber" type="xs:string"/>
+	<xs:element name="RecordSubType" type="xs:string"/>
+	<xs:element name="SKUnumber" type="xs:string"/>
+	<xs:element name="SKUDescription" type="xs:string"/>
+	<xs:element name="Deptnumber" type="xs:string"/>
+	<xs:element name="Classnumber" type="xs:string"/>
+	<xs:element name="Style" type="xs:string"/>
+	<xs:element name="Color" type="xs:string"/>
+	<xs:element name="Size" type="xs:string"/>
+	<xs:element name="SerialNumber" type="xs:string"/>
+	<xs:element name="SystemPrice" type="xs:string"/>
+	<xs:element name="DiscountAmount" type="xs:string"/>
+	<xs:element name="FinalPrice" type="xs:string"/>
+	<xs:element name="NonMerchIndicator" type="xs:string"/>
+	<xs:element name="ShippingCustomerID" type="xs:string"/>
+	<xs:element name="ShippingToname" type="xs:string"/>
+	<xs:element name="Shippingaddress1" type="xs:string"/>
+	<xs:element name="Shippingaddress2" type="xs:string"/>
+	<xs:element name="ShippingCity" type="xs:string"/>
+	<xs:element name="ShippingState" type="xs:string"/>
+	<xs:element name="ShippingPostalcode" type="xs:string"/>
+	<xs:element name="ShippingCountry" type="xs:string"/>
+	<xs:element name="ShippingPhone" type="xs:string"/>
+	<xs:element name="ShippingEmail" type="xs:string"/>
+	<xs:element name="ShippingVendor" type="xs:string"/>
+	<xs:element name="ShippingMethod" type="xs:string"/>
+	<xs:element name="ShippingTrackID" type="xs:string"/>
+	<xs:element name="GiftCardorMerchCardNumberissued" type="xs:string"/>
+	<xs:element name="SuborderNo" type="xs:string"/>
+	<xs:element name="Giftsalutations" type="xs:string"/>
+	<xs:element name="ReturnStore" type="xs:string"/>
+	<xs:element name="SVCCardType" type="xs:string"/>
+	<xs:element name="SVCFromName" type="xs:string"/>
+	<xs:element name="SVCToName" type="xs:string"/>
+	<xs:element name="MonogrammingCharge" type="xs:string"/>
+	<xs:element name="GiftWrapCharge" type="xs:string"/>
+	<xs:element name="ShippingHandlingCharge" type="xs:string"/>
+	<xs:element name="Surcharge" type="xs:string"/>
+	<xs:element name="TaxAmount" type="xs:string"/>
+	<xs:element name="StateTaxable" type="xs:string"/>
+	<xs:element name="FreightTaxable" type="xs:string"/>
+	<xs:element name="ItemFreeShip" type="xs:string"/>
+	<xs:element name="OtherRefundAmount" type="xs:string"/>
+	<xs:element name="ReasonCode" type="xs:string"/>
+	<xs:element name="RefundCheckNumberissued" type="xs:string"/>
+	<xs:element name="SterlingprimeLineNumber" type="xs:string"/>
+	<xs:element name="CatCode" type="xs:string"/>
+	<xs:element name="CancelReasonCode" type="xs:string"/>
+	<xs:element name="DiscountData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="Division"/>
+				<xs:element minOccurs="0" ref="StoreNumber"/>
+				<xs:element minOccurs="0" ref="BusinessDate"/>
+				<xs:element minOccurs="0" ref="RegisterNum"/>
+				<xs:element minOccurs="0" ref="TransactionNumber"/>
+				<xs:element minOccurs="0" ref="RecordType"/>
+				<xs:element minOccurs="0" ref="LineItemNumber"/>
+				<xs:element minOccurs="0" ref="RecordSubType"/>
+				<xs:element minOccurs="0" ref="DiscType"/>
+				<xs:element minOccurs="0" ref="DiscAmount"/>
+				<xs:element minOccurs="0" ref="DiscPercent"/>
+				<xs:element minOccurs="0" ref="DiscID"/>
+				<xs:element minOccurs="0" ref="SterlingLineNumber"/>
+				<xs:element minOccurs="0" ref="AddedDate"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DiscountType" type="xs:string"/>
+	<xs:element name="DiscountPercent" type="xs:string"/>
+	<xs:element name="DiscountID" type="xs:string"/>
+	<xs:element name="SterlingLineNumber" type="xs:string"/>
+	<xs:element name="GiftCardData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="OrderNumber"/>
+				<xs:element minOccurs="0" ref="LineItemNumber"/>
+				<xs:element minOccurs="0" ref="TenderAmount"/>
+				<xs:element minOccurs="0" ref="SVCAccountNumber"/>
+				<xs:element minOccurs="0" ref="ValueLinkResponse"/>
+				<xs:element minOccurs="0" ref="ShippedOrVoidDate"/>
+				<xs:element minOccurs="0" ref="AddedDate"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ValueLinkresponse" type="xs:string"/>
+	<xs:element name="VoidDate" type="xs:string"/>
+	<xs:element name="AspectFileData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="HeaderData"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="PaymentData"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="ShipmentData"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="DiscountData"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="GiftCardData"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AddedDate" type="xs:string"/>
+	<xs:element name="OrderCrtDate" type="xs:string"/>
+	<xs:element name="OrderCrtTime" type="xs:string"/>
+	<xs:element name="MonogrammingDisc" type="xs:string"/>
+	<xs:element name="GIFTWRAPDisc" type="xs:string"/>
+	<xs:element name="ShippingHandlDisc" type="xs:string"/>
+	<xs:element name="SurchargeDisc" type="xs:string"/>
+	<xs:element name="Quantity" type="xs:string"/>
+	<xs:element name="ShippingHandlChrg" type="xs:string"/>
+	<xs:element name="DeletedBy" type="xs:string"/>
+	<xs:element name="TransactionDiscountAmnt" type="xs:string"/>
+	<xs:element name="RefundReasonCode" type="xs:string"/>
+	<xs:element name="RegisterNumber" type="xs:string"/>
+	<xs:element name="BillingAddress1" type="xs:string"/>
+	<xs:element name="BillingAddress2" type="xs:string"/>
+	<xs:element name="BillingPostalCode" type="xs:string"/>
+	<xs:element name="IPAddress" type="xs:string"/>
+	<xs:element name="TransDiscountAmt" type="xs:string"/>
+	<xs:element name="TransactionTime" type="xs:string"/>
+	<xs:element name="Int-nationalOrdInd" type="xs:string"/>
+	<xs:element name="ReplacementOrgOrd" type="xs:string"/>
+	<xs:element name="ReplacementAppDate" type="xs:string"/>
+	<xs:element name="ReplacementRsnCode" type="xs:string"/>
+	<xs:element name="ReplacementActCode" type="xs:string"/>
+	<xs:element name="CredOrRefundTotalAmt" type="xs:string"/>
+	<xs:element name="OrderCreateDate" type="xs:string"/>
+	<xs:element name="OrderCreateTime" type="xs:string"/>
+	<xs:element name="SKUNumber" type="xs:string"/>
+	<xs:element name="DeptNumber" type="xs:string"/>
+	<xs:element name="ClassNumber" type="xs:string"/>
+	<xs:element name="ShippingCustomerId" type="xs:string"/>
+	<xs:element name="ShippingToName" type="xs:string"/>
+	<xs:element name="ShippingAddress1" type="xs:string"/>
+	<xs:element name="ShippingAddress2" type="xs:string"/>
+	<xs:element name="ShippingPostalCode" type="xs:string"/>
+	<xs:element name="GiftSalutations" type="xs:string"/>
+	<xs:element name="GiftWrapDisc" type="xs:string"/>
+	<xs:element name="SterlingPrimeLine" type="xs:string"/>
+	<xs:element name="SVCAccountNumber" type="xs:string"/>
+	<xs:element name="ValueLinkResponse" type="xs:string"/>
+	<xs:element name="ShippedOrVoidDate" type="xs:string"/>
+	<xs:element name="ChequeNumber" type="xs:string"/>
+	<xs:element name="RewardCertNumber" type="xs:string"/>
+	<xs:element name="RewardCertAmount" type="xs:string"/>
+	<xs:element name="RewardCertType" type="xs:string"/>
+	<xs:element name="DiscType" type="xs:string"/>
+	<xs:element name="DiscAmount" type="xs:string"/>
+	<xs:element name="DiscPercent" type="xs:string"/>
+	<xs:element name="DiscID" type="xs:string"/>
+</xs:schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_BCA_UWMpEea4YYevx_xaWA" name="cle.jdbc.CLE-DB" type="jdbc:JdbcDataSource">
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_BCA_UmMpEea4YYevx_xaWA">
+    <substitutionBindings xmi:id="_BCA_U2MpEea4YYevx_xaWA" template="maxConnections" propName="/JDBCConnections/CLEDB/NO_OF_CONNECTIONS"/>
+    <substitutionBindings xmi:id="_BCdrQGMpEea4YYevx_xaWA" template="username" propName="/JDBCConnections/CLEDB/UserName"/>
+    <substitutionBindings xmi:id="_BCncQGMpEea4YYevx_xaWA" template="password" propName="/JDBCConnections/CLEDB/Password"/>
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_BCA_VGMpEea4YYevx_xaWA">
+      <substitutionBindings xmi:id="_BCA_VWMpEea4YYevx_xaWA" template="loginTimeout" propName="/JDBCConnections/CLEDB/TimeOut"/>
+      <substitutionBindings xmi:id="_bvCUMHklEeaIldDlySCmlw" template="dbURL" propName="/JDBCConnections/CLEDB/DatabaseURL"/>
+      <substitutionBindings xmi:id="_8VxcEJCuEeaiZpFIxLYVYg" template="jdbcDriver" propName="/JDBCConnections/CLEDB/DatabseDriver"/>
+    </connectionConfig>
+  </jndi:configuration>
+</jndi:namedResource>

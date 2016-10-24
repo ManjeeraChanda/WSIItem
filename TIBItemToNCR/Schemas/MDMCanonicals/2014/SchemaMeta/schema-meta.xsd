@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://ecommerce.wsgc.com/2014/SchemaMetadata"
+           elementFormDefault="unqualified"
+           targetNamespace="http://ecommerce.wsgc.com/2014/SchemaMetadata">
+
+  <xs:annotation>
+    <xs:documentation>
+      Provides elements for use as schema appinfo annotations to describe metainformation
+      about schemas.
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:complexType name="NarrativeType">
+    <xs:annotation>
+      <xs:documentation>
+        Basic descriptive information.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="VersionedEventType">
+    <xs:annotation>
+      <xs:documentation>
+        Describes an event that occurred on a particular version.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="version" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:element name="Deprecated" type="VersionedEventType">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates that a schema component has been deprecated, with the content describing
+        the deprecation.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="Since" type="VersionedEventType">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates a schema element which was added in a later version
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="Experimental" type="NarrativeType">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates that an element is experimental, with some detail about why.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="Speculative" type="NarrativeType">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates that an element is speculative, with some detail about why.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>

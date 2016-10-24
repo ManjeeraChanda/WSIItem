@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://mdm.wsgc.com/2014/CanonicalData"
+           xmlns:common="http://ecommerce.wsgc.com/2013/Common"
+           targetNamespace="http://mdm.wsgc.com/2014/CanonicalData"
+           version="1.0"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://ecommerce.wsgc.com/2013/Common"
+             schemaLocation="../../2013/Common/common-all.xsd"/>
+
+  <xs:include schemaLocation="base-types.xsd"/>
+
+  <xs:complexType name="ShipRatesType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">"A set of merchandise total ranges and corresponding values that may be used to calculate a fee to be charged to a customer to transport and deliver the merchandise in a sub-order.  The ranges and/or the charge/percent values may change over time and a change to any aspect results in a complete new set of ranges for the new date/time.A sub-order is a collection of items on an order with a specific Ship To address."
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="RateTable" type="RateTableType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ConceptEntityAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="RateTableType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Collection of all the rates with effective date
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Rate" type="RateType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="startTime" type="xs:dateTime" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="RateType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">This element describes minimum, maximum price range and actual value or percentage</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="Percent" type="ChargePercentType">
+        <xs:annotation>
+          <xs:documentation>If present, this is the percentage to be applied to the merchandise sub-order total to be used to calculate the ship charge to be added to the order.
+            .</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Amount" type="CurrencyAmountType">
+        <xs:annotation>
+          <xs:documentation>If present, this is the amount to be applied to the merchandise sub-order total to be used to calculate the ship charge to be added to the order.
+            .</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+    <xs:attribute name="minimumAmount" type="CurrencyAmountType" use="required">
+      <xs:annotation>
+        <xs:documentation>The lower bound of a range of the total of all merchandise items in a sub-order that will be used to calculate ship charge.  For any given sub-order, the total of all merchandise items must be greater than or equal to this amount and less than the Sub-Order Total Minimum Amount of the next higher range (if it exists) to be used.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="ShipRatesEventType">
+    <xs:annotation>
+      <xs:documentation>This section describes Ship Rates with future effective dates</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SystemContext" type="common:SystemContextType"/>
+      <xs:element name="ShipRates" type="ShipRatesType"/>
+    </xs:sequence>
+    <xs:attribute name="version" type="common:VersionType" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="ShipRatesEvent" type="ShipRatesEventType"/>
+</xs:schema>

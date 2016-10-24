@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:http="http://xsd.tns.tibco.com/bw/models/sharedresource/httpclient" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_N_S9AY86Eea4DbPFmFtQ5g" name="tibitemtoncr.NCRHTTPConnection" type="http:HttpClientConfiguration">
+  <jndi:configuration xsi:type="http:HttpClientConfiguration" xmi:id="_N_cG8I86Eea4DbPFmFtQ5g" httpClientVersion="httpcomponents" retryCount="3" idleConnectionTimeout="3000">
+    <tcpDetails xmi:id="_N_cG8Y86Eea4DbPFmFtQ5g" port="8089">
+      <substitutionBindings xmi:id="_3MipgJfiEea-qM0L_UTguw" template="host" propName="/TIBItemToNCR/NCRConn/httpConn"/>
+    </tcpDetails>
+  </jndi:configuration>
+</jndi:namedResource>

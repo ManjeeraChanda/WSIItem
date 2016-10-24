@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns="http://mdm.wsgc.com/2014/CanonicalData/StoreLocation"
+	 xmlns:common="http://ecommerce.wsgc.com/2013/Common"
+	 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 targetNamespace="http://mdm.wsgc.com/2014/CanonicalData/StoreLocation"
+	 version="1.0"
+	 elementFormDefault="unqualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://ecommerce.wsgc.com/2013/Common" schemaLocation="../../2013/Common/common-all.xsd"/>
+	<xs:complexType name="StoreLocationType">
+		<xs:sequence>
+			<xs:element name="StoreName" type="xs:string"/>
+			<xs:element name="CurrencyCode" type="xs:string"/>
+			<xs:element name="ZoneGroupId" type="xs:string"/>
+			<xs:element name="ZoneId" type="xs:string"/>
+			<xs:element name="TaxCode" type="xs:string"/>
+			<xs:element name="Address" type="AddressType"/>
+		</xs:sequence>
+		<xs:attribute name="StoreId" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="StoreLocationEventType">
+		<xs:sequence>
+			<xs:element name="SystemContext" type="common:SystemContextType"/>
+			<xs:element name="StoreLocation" type="StoreLocationType"/>
+		</xs:sequence>
+		<xs:attribute name="version" type="common:VersionType" use="required"/>
+	</xs:complexType>
+	<xs:element name="StoreLocationEvent" type="StoreLocationEventType"/>
+	<xs:complexType name="VasColorType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="code" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="AddressType">
+		<xs:sequence>
+			<xs:element name="AddressLine1" type="xs:string"/>
+			<xs:element name="AddressLine2" type="xs:string" minOccurs="0"/>
+			<xs:element name="CountryCode" type="xs:string"/>
+			<xs:element name="State" type="xs:string" minOccurs="0"/>
+			<xs:element name="County" type="xs:string" minOccurs="0"/>
+			<xs:element name="City" type="xs:string"/>
+			<xs:element name="PostalCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

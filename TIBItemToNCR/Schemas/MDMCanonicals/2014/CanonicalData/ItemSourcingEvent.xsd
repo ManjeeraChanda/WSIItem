@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://mdm.wsgc.com/2014/CanonicalData"
+           xmlns:common="http://ecommerce.wsgc.com/2013/Common"
+           targetNamespace="http://mdm.wsgc.com/2014/CanonicalData"
+           version="1.0"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://ecommerce.wsgc.com/2013/Common"
+             schemaLocation="../../2013/Common/common-all.xsd"/>
+
+  <xs:include schemaLocation="base-types.xsd"/>
+
+  <xs:complexType name="ItemSourcingType">
+    <xs:sequence>
+      <xs:element name="Channel" type="ChannelType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ItemEntityAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="ChannelType">
+    <xs:annotation>
+      <xs:documentation>Contains elements to represent channel specific information including item suppliers and supplier countries</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="WeightedAverageCost" type="CostType">
+        <xs:annotation>
+          <xs:documentation>Weighted Average Cost of Item or WAC of all component items if Item is a Pack Item at Channel Level. WAC can be different values based on Item Channel</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Supplier" type="SupplierType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="typeCode" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Typecode can be "DTC" or "RTL"</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="SupplierType">
+    <xs:annotation>
+      <xs:documentation>Contains elements to represent primary and secondary suppliers of an item</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The formally recognized legal name of the supplier.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="IsPrimary" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indicates if the Supplier is Primary</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VendorProductNumber" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indicates Vendor Product Number associated with this Item Supplier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Dimensions" type="DimensionsType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Country" type="SupplierCountryType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Unique WSI identifier for the supplier.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="SupplierCountryType">
+    <xs:annotation>
+      <xs:documentation>Contains elements to represent supplier origin country and unit cost associated to an item</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="IsPrimaryCustomsOrigin" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indicates if the provided Origin Country is at Primary Level</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="UnitCostUsd" type="CostType">
+        <xs:annotation>
+          <xs:documentation>Current corporate unit cost in USD for the SKU from the supplier/origin country</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="countryCode" type="common:CountryCodeType" use="required">
+      <xs:annotation>
+        <xs:documentation>A unique, two character alphanumeric code for the country according to the ISO 3166-1 alpha-2 standard.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="DimensionsType">
+    <xs:annotation>
+      <xs:documentation>This element describes the dimensions of an Item</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:sequence minOccurs="0">
+        <xs:element name="Length" type="MeasurementType">
+          <xs:annotation>
+            <xs:documentation>Length of Dimension Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Width" type="MeasurementType">
+          <xs:annotation>
+            <xs:documentation>Width of of Dimension Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Height" type="MeasurementType">
+          <xs:annotation>
+            <xs:documentation>Height of of Dimension Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:element name="Weight" type="MeasurementType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Weight of of Dimension Code</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Specific object whose dimensions are specified in this record (e.g. CA(Case), IN(Inner))</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="ItemSourcingEventType">
+    <xs:annotation>
+      <xs:documentation>This type represents the item sourcing event which gets triggered when any sourcing specific attributes, defined by ItemSourcingType, are updated in MDM</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SystemContext" type="common:SystemContextType"/>
+      <xs:element name="ItemSourcing" type="ItemSourcingType"/>
+    </xs:sequence>
+    <xs:attribute name="version" type="common:VersionType" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="ItemSourcingEvent" type="ItemSourcingEventType"/>
+</xs:schema>

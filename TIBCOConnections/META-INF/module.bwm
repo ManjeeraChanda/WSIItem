@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_fC14EJCvEeaiZpFIxLYVYg" targetNamespace="http://tns.tibco.com/bw/composite/TIBCOConnections" name="TIBCOConnections" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_fF0TkJCvEeaiZpFIxLYVYg" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fF0TkZCvEeaiZpFIxLYVYg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fF0TkpCvEeaiZpFIxLYVYg" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fF0Tk5CvEeaiZpFIxLYVYg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fF0TlJCvEeaiZpFIxLYVYg" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fF-EkJCvEeaiZpFIxLYVYg" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fF-EkZCvEeaiZpFIxLYVYg" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fF-EkpCvEeaiZpFIxLYVYg" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fF-Ek5CvEeaiZpFIxLYVYg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_3MyTkJCvEeaiZpFIxLYVYg" name="/JMSConnections/EMSMain/JMSProviderURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_69WbIJCvEeaiZpFIxLYVYg" name="/JMSConnections/EMSMain/JMSSSLProviderURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_6_Ij0JCvEeaiZpFIxLYVYg" name="/JMSConnections/EMSMain/JNDIContextFactory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7BEdgJCvEeaiZpFIxLYVYg" name="/JMSConnections/EMSMain/JNDIContextURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7CjrQJCvEeaiZpFIxLYVYg" name="/JMSConnections/EMSMain/JNDIPassword" type="property:password" scaext:simpleValue="#!p04mOD9eW1lWXUmJTaMAiA==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7Js1EJCvEeaiZpFIxLYVYg" name="/JMSConnections/EMSMain/JNDIUserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7LouwJCvEeaiZpFIxLYVYg" name="/JMSConnections/EMSMain/Password" type="property:password" scaext:simpleValue="#!fEbVZ+1JfBN037QI2inwQw==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7Pf7EJCvEeaiZpFIxLYVYg" name="/JMSConnections/EMSMain/QueueConnectionFactory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7SoHkJCvEeaiZpFIxLYVYg" name="/JMSConnections/EMSMain/TopicConnectionFactory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Nz4cQJCwEeaiZpFIxLYVYg" name="/JMSConnections/EMSMain/UserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+</sca:composite>

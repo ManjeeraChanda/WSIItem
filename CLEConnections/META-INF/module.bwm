@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_Hjl5AJCnEeaiZpFIxLYVYg" targetNamespace="http://tns.tibco.com/bw/composite/CLEConnections" name="CLEConnections" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_H84iwJCnEeaiZpFIxLYVYg" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_H9LdsJCnEeaiZpFIxLYVYg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_H9VOsJCnEeaiZpFIxLYVYg" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_H9VOsZCnEeaiZpFIxLYVYg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_H9VOspCnEeaiZpFIxLYVYg" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_H9eYoJCnEeaiZpFIxLYVYg" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_H9eYoZCnEeaiZpFIxLYVYg" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_H9eYopCnEeaiZpFIxLYVYg" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_H9oJoJCnEeaiZpFIxLYVYg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_naFwgJCnEeaiZpFIxLYVYg" name="/JMSConnections/EMSCLE/QueueConnectionFactory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_qRO8wJCnEeaiZpFIxLYVYg" name="/JMSConnections/EMSCLE/TopicConnectionFactory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_usoUkJCoEeaiZpFIxLYVYg" name="/JMSConnections/EMSCLE/JMSProviderURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_0R_akJCoEeaiZpFIxLYVYg" name="/JMSConnections/EMSCLE/JMSSSLProviderURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_0Y-zYJCoEeaiZpFIxLYVYg" name="/JMSConnections/EMSCLE/JNDIContextFactory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4JZxAJCoEeaiZpFIxLYVYg" name="/JMSConnections/EMSCLE/JNDIContextURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4Qi60JCoEeaiZpFIxLYVYg" name="/JMSConnections/EMSCLE/JNDIPassword" type="property:password" scaext:simpleValue="#!wWrDtpop+QmWBx/UFvFf3A==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4VKVEJCoEeaiZpFIxLYVYg" name="/JMSConnections/EMSCLE/JNDIUserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4ZxIQJCoEeaiZpFIxLYVYg" name="/JMSConnections/EMSCLE/Password" type="property:password" scaext:simpleValue="#!ZndC+kiY6HQkhNbHfQRB9g==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_DJG_0JCpEeaiZpFIxLYVYg" name="/JMSConnections/EMSCLE/UserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_O4jXkJCrEeaiZpFIxLYVYg" name="/JDBCConnections/CLEDB/DatabaseURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_maRVcJCrEeaiZpFIxLYVYg" name="/JDBCConnections/CLEDB/MaximumRows" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_q6cVAJCrEeaiZpFIxLYVYg" name="/JDBCConnections/CLEDB/NO_OF_CONNECTIONS" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_q_M5MJCrEeaiZpFIxLYVYg" name="/JDBCConnections/CLEDB/Password" type="property:password" scaext:simpleValue="#!H8lJ/U4qNvOWA9eG0gZtIA==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_rC67kJCrEeaiZpFIxLYVYg" name="/JDBCConnections/CLEDB/TimeOut" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_rFAmQJCrEeaiZpFIxLYVYg" name="/JDBCConnections/CLEDB/UserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_46xU0JCuEeaiZpFIxLYVYg" name="/JDBCConnections/CLEDB/DatabseDriver" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_By8PYJCvEeaiZpFIxLYVYg" name="/ThresholdExceptionNotification/MailHost" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_KMc4AJCvEeaiZpFIxLYVYg" name="/ThresholdExceptionNotification/MailPort" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+</sca:composite>

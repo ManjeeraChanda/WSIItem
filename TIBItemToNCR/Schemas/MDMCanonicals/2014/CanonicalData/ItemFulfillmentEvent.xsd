@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://mdm.wsgc.com/2014/CanonicalData"
+           xmlns:common="http://ecommerce.wsgc.com/2013/Common"
+           targetNamespace="http://mdm.wsgc.com/2014/CanonicalData"
+           version="1.0"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://ecommerce.wsgc.com/2013/Common"
+             schemaLocation="../../2013/Common/common-all.xsd"/>
+
+  <xs:include schemaLocation="base-types.xsd"/>
+
+  <xs:complexType name="ItemFulfillmentType">
+    <xs:annotation>
+      <xs:documentation>Contains fulfillment specific elements and attributes of an item.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:element name="FulfillmentClass" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the code describing the fulfillment class of the item.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="HasInfiniteInventory" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indicates if the item may have infinite inventory. E.g. eCards, eCertificates, Gift Cards
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="IsSplitAcrossDcs" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indicates if the item can be sourced from multiple distribution centers</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="IsFulfilledFromRetail" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indicates if the item can be fulfilled from a Retail allocated inventory (typically from Retail WH) Also known as AIT</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BackOrderLeadDays" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Indicates the Back Order Lead Time for the item</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="HandlingSensitivityCode" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>A code to indicate any special handling, such as hazardous materials, the item requires during shipping.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="HandlingTemperatureCode" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            A code to indicate any specific temperature the item requires during shipping.  RMS defaults this to "Room" currently.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LaborItem" type="ItemIdType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Provides any labor items which are required when fulfilling this item.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DcShip" type="DcCarrierInfoType" minOccurs="0"/>
+      <xs:element name="DirectShip" type="DirectShipCarrierInfoType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ItemEntityAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="DcCarrierInfoType">
+    <xs:annotation>
+      <xs:documentation>Contains elements to represent DC carrier service level assigned at the time of item creation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ShipModeCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            A designation for the decision made about the way an item may be sent from a WSI Distribution Center (DC) to a customer.
+            As of October 2014, the offical valid ship modes used at WSI are:
+
+            20 Conveyable mail order (CMO)
+            30 Separate ship (SS)
+            35 Furniture - threshold
+            99 Furniture - white glove.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DirectShipCarrierInfoType">
+    <xs:annotation>
+      <xs:documentation>Contains elements to represent Drop Ship carrier and its corresponding service level assigned at the time of item creation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CarrierCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            A unique, alphanumeric code to identify the direct ship
+            carrier.  This attribute applies only for an item that may
+            be shipped directly from a supplier to a customer (see Is
+            Available For Direct Ship).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CarrierServiceLevel" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            An alphanumeric code, which must be unique in the context
+            of a direct ship carrier, to identify the direct ship
+            service level.  This attribute applies only for an item
+            that may be shipped directly from a supplier to a customer
+            (see Is Available For Direct Ship).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ItemFulfillmentEventType">
+    <xs:annotation>
+      <xs:documentation>This type represents the item fulfillment event which gets triggered when any fulfillment specific attributes, defined by ItemFulfillmentType, are updated in MDM</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SystemContext" type="common:SystemContextType"/>
+      <xs:element name="ItemFulfillment" type="ItemFulfillmentType"/>
+    </xs:sequence>
+    <xs:attribute name="version" type="common:VersionType" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="ItemFulfillmentEvent" type="ItemFulfillmentEventType"/>
+</xs:schema>

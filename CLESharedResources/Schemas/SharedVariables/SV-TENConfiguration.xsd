@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:pfx="http://www.tibco.com/schemas/TIBCOSharedResources/SharedResources/XMLSchemas/CLE/ThresholdExceptionNotification.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tns.tibco.com/bw/model/core/moduleSV/5dbb32d9-5746-4aad-89bb-c84c3e9be376">
+    <xsd:import namespace="http://www.tibco.com/schemas/TIBCOSharedResources/SharedResources/XMLSchemas/CLE/ThresholdExceptionNotification.xsd" schemaLocation="../XMLSchemas/Common/ThresholdExceptionNotification.xsd"/>
+    <xsd:element name="CurrentStates">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurrentState" type="pfx:CurrentStateType" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TIBCOSharedResources
+Bundle-SymbolicName: CLESharedResources
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .,.,.,.,.,.,.,.,.,.
+Bundle-Vendor: TIBCO Software Inc.
+TIBCO-BW-ConfigProfile: META-INF/default.substvar
+TIBCO-BW-SharedModule: META-INF/module.bwm
+TIBCO-BW-JobSharedVariables: META-INF/module.jsv
+Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",
+ com.tibco.bw.module; filter:="(&(name=CLEConnections)(version=1.0.0))",
+ com.tibco.bw.module; filter:="(&(name=TIBCOConnections)(version=1.0.0))",
+ com.tibco.bw.palette; filter:="(name=bw.generalactivities)",
+ com.tibco.bw.palette; filter:="(name=bw.file)",
+ com.tibco.bw.palette; filter:="(name=bw.jms)",
+ com.tibco.bw.palette; filter:="(name=bw.xml)"
+TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
+Provide-Capability: com.tibco.bw.module; name="CLESharedResources"; version:Version="1.0.0",
+ com.tibco.bw.schemas; ns="http://ems.wsgc.com/InLineSchemas",
+ com.tibco.bw.schemas; ns="http://tns.tibco.com/bw/model/core/moduleSV/1035717a-66aa-4d67-a621-a3e00020be6d",
+ com.tibco.bw.schemas; ns="http://tns.tibco.com/bw/model/core/moduleSV/5dbb32d9-5746-4aad-89bb-c84c3e9be376",
+ com.tibco.bw.schemas; ns="http://tns.tibco.com/bw/model/core/moduleSV/c8fb62c6-d1fa-4302-a5a1-ce8a09980102",
+ com.tibco.bw.schemas; ns="http://www.tibco.com/schemas/SharedResources/XMLSchemas/Common/Config_Xref_Lookup.xsd",
+ com.tibco.bw.schemas; ns="http://www.tibco.com/schemas/TIBCOSharedResources/SharedResources/XMLSchemas/CLE/ThresholdExceptionNotification.xsd",
+ com.tibco.bw.schemas; ns="http://www.ultimosoft.com/CLEH/ExceptionHandler.xsd",
+ com.tibco.bw.schemas; ns="http://www.wsgc.com/schemas/common/AppAuditSwitches.xsd",
+ com.tibco.bw.schemas; ns="http://www.wsgc.com/schemas/common/CLEFlags.xsd",
+ com.tibco.bw.wsdls; ns="http://www.tibco.com/OnStartupCLEFlags/",
+ com.tibco.bw.processes; name="CommonProcesses.CLEClientStub",
+ com.tibco.bw.processes; name="CommonProcesses.LookupTranslation",
+ com.tibco.bw.processes; name="CommonProcesses.LookupTranslation.SubProcesses",
+ com.tibco.bw.resources; name="cle.xslts"
+TIBCO-BW-Version: 6.3.2 V30 2016-04-28

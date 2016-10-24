@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msv:DocumentRoot xmlns:msv="http://tns.tibco.com/bw/model/core/moduleSV">
+  <moduleSharedVariables>
+    <moduleSharedVariable name="SV-CLEFlags" type="{http://www.wsgc.com/schemas/common/CLEFlags.xsd}CLEFlags" initialValueMode="none"/>
+    <moduleSharedVariable name="SV-TENConfiguration" type="{http://tns.tibco.com/bw/model/core/moduleSV/5dbb32d9-5746-4aad-89bb-c84c3e9be376}CurrentStates" initialValueMode="none"/>
+    <moduleSharedVariable name="SV-TENInterfaceConfig" type="{http://tns.tibco.com/bw/model/core/moduleSV/c8fb62c6-d1fa-4302-a5a1-ce8a09980102}NotificationConfiguration" initialValueMode="none"/>
+    <moduleSharedVariable name="SV-BatchProcessAuditParameters" type="{http://tns.tibco.com/bw/model/core/moduleSV/1035717a-66aa-4d67-a621-a3e00020be6d}ProcessingInfo" initialValueMode="none"/>
+    <moduleSharedVariable name="moduleSharedVariable" type="{http://tns.tibco.com/bw/model/core/moduleSV/c8fb62c6-d1fa-4302-a5a1-ce8a09980102}NotificationConfiguration" initialValueMode="none"/>
+  </moduleSharedVariables>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.wsgc.com/schemas/common/CLEFlags.xsd" location="../SharedResources/XMLSchemas/Common/CLEFlags.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/model/core/moduleSV/5dbb32d9-5746-4aad-89bb-c84c3e9be376" location="../Schemas/SharedVariables/SV-TENConfiguration.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/model/core/moduleSV/c8fb62c6-d1fa-4302-a5a1-ce8a09980102" location="../Schemas/SharedVariables/SV-TENInterfaceConfig.xsd"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/model/core/moduleSV/1035717a-66aa-4d67-a621-a3e00020be6d" location="../Schemas/SharedVariables/SV-BatchProcessAuditParameters.xsd"/>
+</msv:DocumentRoot>

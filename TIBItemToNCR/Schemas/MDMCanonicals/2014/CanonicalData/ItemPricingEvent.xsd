@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Satish Rao (Williams-Sonoma, Inc.) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://mdm.wsgc.com/2014/CanonicalData"
+	 xmlns:common="http://ecommerce.wsgc.com/2013/Common"
+	 targetNamespace="http://mdm.wsgc.com/2014/CanonicalData"
+	 version="1.0"
+	 elementFormDefault="unqualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://ecommerce.wsgc.com/2013/Common" schemaLocation="../../2013/Common/common-all.xsd"/>
+	<xs:include schemaLocation="base-types.xsd"/>
+	<xs:complexType name="ItemPriceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Contains elements to represent different item prices for DTC channel.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="ChannelPrice" type="ChannelPriceType"/>
+			<xs:element name="Base" type="BasePriceType" maxOccurs="unbounded"/>
+			<xs:element name="Effective" type="EffectivePriceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Variant" type="VariantPriceType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="ItemEntityAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="VariantPriceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">This element describes a variant price and effective date.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Effective" type="EffectivePriceType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Indicates type of the variant like SPIFF price.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="BasePriceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Describes a base price and its effective date.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Price" type="CurrencyAmountType">
+				<xs:annotation>
+					<xs:documentation>its Initial Regular Price defaulted from RMS. But it can contain future effective dated records.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Surcharge" type="CurrencyAmountType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates Delivery and Processing surcharge amount of an Item on DTC channel.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Msrp" type="CurrencyAmountType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates Manufacturer Suggested Retail Price.Till the time the user provides the MSRP, this price wouldn’t exist.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="startTime" type="xs:dateTime" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="EffectivePriceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">This element describes an
+        effective price and its effective date. This may be empty to
+        indicate the absence of an effective price.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="Price" type="PriceModifierType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The effective price value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsFreeShip" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">If present and true, indicates that shipping is free for the item with this price.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsFreePz" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">If present and true, indicates that personalization is free for the item with this price.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsAssociateDiscountSuppressed" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If present and true, indicates that this price does not receive an associate discount.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="startTime" type="xs:dateTime" use="required">
+			<xs:annotation>
+				<xs:documentation>The point in time at which this price becomes effective (until overridden by a later effective price).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PriceModifierType">
+		<xs:annotation>
+			<xs:documentation>This element describes the price and its type (Clearance, Discount, FinalClearance, etc)</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="CurrencyAmountType">
+				<xs:attribute name="modifier" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ItemPricingEventType">
+		<xs:annotation>
+			<xs:documentation>This type represents the item pricing event which gets triggered when any pricing specific attributes, defined by ItemPriceType, are updated in MDM</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SystemContext" type="common:SystemContextType"/>
+			<xs:element name="ItemPricing" type="ItemPriceType"/>
+		</xs:sequence>
+		<xs:attribute name="version" type="common:VersionType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ChannelPriceType">
+		<xs:annotation>
+			<xs:documentation>This type represents the item pricing event which gets triggered when any pricing specific attributes, defined by ItemPriceType, are updated in MDM</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ZoneId" type="xs:string"/>
+			<xs:element name="CurrencyCode" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="channel" type="ChannelType" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="ChannelType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DTC"/>
+			<xs:enumeration value="RTL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="ItemPricingEvent" type="ItemPricingEventType"/>
+</xs:schema>

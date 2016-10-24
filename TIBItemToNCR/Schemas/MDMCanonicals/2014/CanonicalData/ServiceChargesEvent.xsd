@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://mdm.wsgc.com/2014/CanonicalData"
+           xmlns:common="http://ecommerce.wsgc.com/2013/Common"
+           targetNamespace="http://mdm.wsgc.com/2014/CanonicalData"
+           version="1.0"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://ecommerce.wsgc.com/2013/Common"
+             schemaLocation="../../2013/Common/common-all.xsd"/>
+
+  <xs:include schemaLocation="base-types.xsd"/>
+
+  <xs:complexType name="ServiceChargesType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A specific fee that a concept may charge a customer in a country for a particular service which may change over time.
+</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="EffectiveCharges" type="EffectiveChargesType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+                                                Collection of Charges effective at a point in time
+                                        </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attributeGroup ref="ConceptEntityAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="EffectiveChargesType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A specific fee that a concept may charge a customer in a country for a particular service which may change over time.
+</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Delivery" type="ChargeType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+                                                This element contains Delivery Charge  e.g. "Non Contagious-Furniture","Standard Rush" etc.
+                                        </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ValueAddedService" type="ChargeType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+                                                This element contains Value Added Service charge  e.g. "Personalization","Gift Wrap" etc.
+                                        </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="startTime" type="xs:dateTime" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="ChargeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">This element describes charge and value associated</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Amount" type="CurrencyAmountType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+                                                The amount, in the default currency of the United States, to be added to the order for the specified service.
+                                        </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">Indicates type of charge like "Standard B2B-SVC",  "Standard Rush" ,"Gift Wrap" etc.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="ServiceChargesEventType">
+    <xs:annotation>
+      <xs:documentation>This section describes Service Charges with future effective dates</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SystemContext" type="common:SystemContextType"/>
+      <xs:element name="ServiceCharges" type="ServiceChargesType"/>
+    </xs:sequence>
+    <xs:attribute name="version" type="common:VersionType" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="ServiceChargesEvent" type="ServiceChargesEventType"/>
+</xs:schema>

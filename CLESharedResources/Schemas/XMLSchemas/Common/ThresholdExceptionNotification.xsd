@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/TIBCOSharedResources/SharedResources/XMLSchemas/CLE/ThresholdExceptionNotification.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/TIBCOSharedResources/SharedResources/XMLSchemas/CLE/ThresholdExceptionNotification.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Request">
+		<xs:complexType>
+			<xs:attributeGroup ref="ExceptionNotificationAttributes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="ExceptionNotificationAttributes">
+		<xs:attribute name="interfaceCode" type="xs:string" use="required"/>
+		<xs:attribute name="exceptionCode" type="xs:string" use="required"/>
+		<xs:attribute name="threshold" type="xs:double"/>
+		<xs:attribute name="timeInterval" type="xs:double"/>
+		<xs:attribute name="emailFrom" type="xs:string"/>
+		<xs:attribute name="emailTo" type="xs:string"/>
+		<xs:attribute name="emailCC" type="xs:string"/>
+		<xs:attribute name="emailSubject" type="xs:string"/>
+		<xs:attribute name="emailBody" type="xs:string"/>
+	</xs:attributeGroup>
+	<xs:complexType name="CurrentStateType">
+		<xs:attributeGroup ref="CurrentStateAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="RequestType">
+		<xs:attributeGroup ref="ExceptionNotificationAttributes"/>
+	</xs:complexType>
+	<xs:attributeGroup name="CurrentStateAttributes">
+		<xs:attribute name="interfaceCode" type="xs:string" use="required"/>
+		<xs:attribute name="exceptionCode" type="xs:string" use="required"/>
+		<xs:attribute name="notificationCount" type="xs:string" use="required"/>
+		<xs:attribute name="lastUpdateTimestamp" type="xs:string" use="required"/>
+		<xs:attribute name="lastNotificationTimestamp" type="xs:string" use="required"/>
+	</xs:attributeGroup>
+</xs:schema>

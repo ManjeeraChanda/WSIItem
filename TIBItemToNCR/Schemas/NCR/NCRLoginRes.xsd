@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.wsgc.com/ncr/loginRes" elementFormDefault="qualified" targetNamespace="http://www.wsgc.com/ncr/loginRes">
+  <complexType name="NCRLoginResElementType">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="accessToken">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="token" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="idleTime" type="integer"/>
+            <element maxOccurs="1" minOccurs="0" name="maxIdleTime" type="integer"/>
+            <element maxOccurs="1" minOccurs="0" name="maxSessionTime" type="integer"/>
+            <element maxOccurs="1" minOccurs="0" name="remainingTime" type="integer"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element maxOccurs="1" minOccurs="0" name="userInfo">
+        <complexType>
+          <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="roles">
+              <complexType>
+                <sequence>
+                  <element maxOccurs="1" minOccurs="0" name="roleCode" type="string"/>
+                  <element maxOccurs="1" minOccurs="0" name="roleName" type="string"/>
+                </sequence>
+              </complexType>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="passwordReset" type="boolean"/>
+            <element maxOccurs="1" minOccurs="0" name="passwordExpirationDays" type="integer"/>
+            <element maxOccurs="1" minOccurs="0" name="userId" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="firstName" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="lastName" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="displayName" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="primaryLanguage" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="secondaryLanguage" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element maxOccurs="1" minOccurs="0" name="orgInfo">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="tenantName" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="orgName" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="orgLevelName" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="isLowestLevel" type="boolean"/>
+            <element maxOccurs="1" minOccurs="0" name="defaultLanguage" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <element name="NCRLoginResElement" type="tns:NCRLoginResElementType"/>
+</schema>
